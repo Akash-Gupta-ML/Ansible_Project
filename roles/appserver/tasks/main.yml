@@ -1,0 +1,49 @@
+---
+- name: Install Python
+  apt:
+    name:
+      - python3
+      - python3-pip
+      - python3-venv
+    state: present
+    update_cache: yes
+
+- name: install Flask and sql
+  pip:
+    name:
+      - flask
+      - mysql-connector-python
+    executable: pip3
+
+- name: Create a virtual env
+  command: python3 -m venv /home/akash/flask_app/venv creates=/home/akash/flask_app/venv
+  become: yes
+
+- name: Install apps requiremnts
+  pip: 
+    requirements: /home/akash/flask_app/requirements.txt
+    virtualenv: /home/akash/flask_app/venv
+
+- name: copy flask app
+  copy: 
+    src: app.py
+    dest: /home/akash/flask_app/app.py
+    mode: '0755'
+
+
+
+- name: start app
+  shell: nohup /home/akash/flask_app/venv/bin/python /home/akash/flask_app/app.py &
+  args:
+    chdir: /home/akash/flask_app
+  become: yes
+
+
+
+
+
+
+
+
+
+
