@@ -1,11 +1,98 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome to the Web Server</title>
+    <title>Get Current Time</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        button {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3; 
+        }
+        #time {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+        }
+        h2 {
+            color: #555;
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        p {
+            line-height: 1.6;
+        }
+    </style>
+
+    <script>
+        function getTime()
+                {
+                        fetch('http://10.81.4.199:5000/time')
+                                            .then(response => response.json())
+                                    .then(
+                                                        data => {
+                                                                            document.getElementById("time").innerText = `Current Time is: ${data.current_time}`});              }
+    </script>
 </head>
 <body>
-    <h1>Hello from Web Server</h1>
-    <h2>This is My webserver Demo Page, Created for the Ansible project<h2>
+    <div class="container">
+    <h1>Get Current Time</h1>
+    <button onClick = "getTime()"> GET TIME NOW </button>
+    <p id="time"></p>
+    <h2>Project Overview</h2>
+    <p>
+        This project demonstrates a simple web application that interacts with a three-tier architecture system.
+        The system consists of the following components:
+    </p>
+    <ul>
+        <li><strong>Web Server:</strong> Hosts the frontend application using Apache2. It provides a simple HTML page with a button to request the current date and time from the backend.</li>
+        <li><strong>Application Server:</strong> Hosts a Flask application. It handles the request from the web server, fetches the current date and time from the database, and returns it as a JSON response.</li>
+        <li><strong>Database Server:</strong> Contains a MySQL database with a table that stores and retrieves the current date and time. The Flask application queries this database to get the current time.</li>
+    </ul>
+    <p>
+        When the user clicks the "GET TIME NOW" button, the frontend sends a request to the Flask application running on the application server. The Flask application then queries the MySQL database on the database server to get the current date and time. This information is sent back to the frontend and displayed on the web page.
+    </p>
+    <p>                                                                             The setup is automated using Ansible, which simplifies the deployment and configuration of these components across multiple virtual machines.
+    </p>
+    </div>
 </body>
 </html>
 
