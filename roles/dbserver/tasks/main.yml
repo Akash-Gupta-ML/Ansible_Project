@@ -13,7 +13,6 @@
 
 - name: Create database and user
   mysql_db:
-<<<<<<< HEAD
     name: ansibledb
     state: present
     login_user: root
@@ -29,23 +28,6 @@
     login_user: root
     login_password: "040801"
     login_host: localhost
-=======
-    name: "{{ db_name }}"
-    state: present
-    login_user: "{{ db_root_user }}"
-    login_password: "{{ db_root_password }}"
-    login_host: localhost
   notify: Restart MySQL
 
-- name: Create database user
-  mysql_user:
-    name: "{{ db_user }}"
-    password: "{{ db_user_password }}"
-    priv: "*.*:ALL"
-    state: present
-    login_user: "{{ db_root_user }}"
-    login_password: "{{ db_root_password }}"
-    login_host: localhost
-  notify: Restart MySQL
->>>>>>> 98f52b0 (Initial commit)
 
