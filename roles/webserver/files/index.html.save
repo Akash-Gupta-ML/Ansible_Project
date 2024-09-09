@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Current Time</title>
+    <script>
+	function getTime()
+	    	{
+			fetch('http://10.81.4.199:5000/time')
+					    .then(response => response.json())
+				    .then(
+							data => {
+									    document.getElementById("time").innerText = `Current Date & Time is:  ${data.current_time}`});		}
+    </script>
+</head>
+<body>
+    <h1>Get Current Time</h1>
+    <button onClick = "getTime()"> GET TIME NOW </button>
+    <p id="time"></p>
+    
+</body>
+</html>
+

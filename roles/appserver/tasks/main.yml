@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
 - name: Install Python
+=======
+- name: Install Python1
+>>>>>>> 98f52b0 (Initial commit)
   apt:
     name:
       - python3
@@ -21,6 +25,7 @@
   become: yes
 
 - name: Install apps requiremnts
+<<<<<<< HEAD
   pip: 
     requirements: /home/akash/flask_app/requirements.txt
     virtualenv: /home/akash/flask_app/venv
@@ -28,13 +33,28 @@
 - name: copy flask app
   copy: 
     src: app.py
+=======
+  pip:
+    requirements: /home/akash/flask_app/requirements.txt
+    virtualenv: /home/akash/flask_app/venv
+  become: yes
+
+- name: copy flask app
+  template: 
+    src: app.py.j2
+>>>>>>> 98f52b0 (Initial commit)
     dest: /home/akash/flask_app/app.py
     mode: '0755'
 
 
+<<<<<<< HEAD
 
 - name: start app
   shell: nohup /home/akash/flask_app/venv/bin/python /home/akash/flask_app/app.py &
+=======
+- name: start app
+  shell: nohup /home/akash/flask_app/venv/bin/python /home/akash/flask_app/app.py > /home/akash/flask_app/app.log 2>&1 &
+>>>>>>> 98f52b0 (Initial commit)
   args:
     chdir: /home/akash/flask_app
   become: yes
@@ -47,4 +67,7 @@
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 98f52b0 (Initial commit)

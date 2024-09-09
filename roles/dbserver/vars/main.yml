@@ -1,0 +1,7 @@
+---
+db_name: ansibledb
+db_root_user: root
+db_root_password: "040801"
+db_user: akash
+db_user_password: akash
+

@@ -1,0 +1,6 @@
+---
+db_host: 10.81.4.243
+db_name: ansibledb
+db_user: akash
+db_user_password: akash
+

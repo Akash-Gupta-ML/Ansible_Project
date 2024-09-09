@@ -3,7 +3,11 @@
 <head>
     <title>Get Current Time</title>
     <style>
+<<<<<<< HEAD
          body {
+=======
+	 body {
+>>>>>>> 98f52b0 (Initial commit)
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -37,7 +41,11 @@
             transition: background-color 0.3s ease;
         }
         button:hover {
+<<<<<<< HEAD
             background-color: #0056b3; 
+=======
+            background-color: #0056b3;
+>>>>>>> 98f52b0 (Initial commit)
         }
         #time {
             font-size: 18px;
@@ -63,6 +71,7 @@
     </style>
 
     <script>
+<<<<<<< HEAD
         function getTime()
                 {
                         fetch('http://10.81.4.199:5000/time')
@@ -70,6 +79,15 @@
                                     .then(
                                                         data => {
                                                                             document.getElementById("time").innerText = `Current Time is: ${data.current_time}`});              }
+=======
+	function getTime()
+	    	{
+			fetch('http://10.81.4.199:5000/time')
+					    .then(response => response.json())
+				    .then(
+							data => {
+									    document.getElementById("time").innerText = `Current Time is: ${data.current_time}`});		}
+>>>>>>> 98f52b0 (Initial commit)
     </script>
 </head>
 <body>
@@ -90,7 +108,12 @@
     <p>
         When the user clicks the "GET TIME NOW" button, the frontend sends a request to the Flask application running on the application server. The Flask application then queries the MySQL database on the database server to get the current date and time. This information is sent back to the frontend and displayed on the web page.
     </p>
+<<<<<<< HEAD
     <p>                                                                             The setup is automated using Ansible, which simplifies the deployment and configuration of these components across multiple virtual machines.
+=======
+    <p>
+        The setup is automated using Ansible, which simplifies the deployment and configuration of these components across multiple virtual machines.
+>>>>>>> 98f52b0 (Initial commit)
     </p>
     </div>
 </body>

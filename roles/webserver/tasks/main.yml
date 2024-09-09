@@ -16,4 +16,8 @@
     src: index.html
     dest: /var/www/html/index.html
     mode: '0644'
+<<<<<<< HEAD
 
+=======
+  notify: Restart Apache
+>>>>>>> 98f52b0 (Initial commit)
